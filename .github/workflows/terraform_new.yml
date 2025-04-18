@@ -1,4 +1,4 @@
-name: Terraform Setup Test
+name: Terraform cd
 
 on:
   workflow_dispatch:
