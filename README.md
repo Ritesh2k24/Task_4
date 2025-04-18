@@ -13,19 +13,7 @@ This project automates the deployment of a Strapi CMS application on an AWS EC2 
 
 4. GitHub Actions to build, push, and deploy via CI/CD
 
-   Below is the folder structure which was used in this project
-
-   strapi-deployment_Task_4/
-├── terraform/
-│   ├── main.tf
-│   ├── variables.tf
-│   ├── outputs.tf
-│   └── user_data.sh
-├── Dockerfile
-└── .github/
-    └── workflows/
-        ├── ci.yml
-        └── terraform.yml
+  
 
 ⚙️ How it Works
 
