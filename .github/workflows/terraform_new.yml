@@ -29,3 +29,13 @@ jobs:
       - name: Initialize Terraform
         run: terraform init
         working-directory: terraform 
+
+      - name: Terraform Plan
+        working-directory: terraform
+        run: terraform plan
+        
+      - name: Terraform Apply
+        env:
+          TF_VAR_ami_id: ${{ secrets.AMI_ID }}
+        working-directory: terraform
+        run: terraform apply -auto-approve
