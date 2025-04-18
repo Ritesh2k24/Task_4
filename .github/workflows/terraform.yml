@@ -5,6 +5,8 @@ jobs:
   terraform:
     name: Deploy with Terraform
     runs-on: ubuntu-latest
+    environment: aws
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
