@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "strapi" {
-  ami           =  var.ami_id
+  ami           = "var.ami_id"
   instance_type = "t2.medium"
   user_data     = file("${path.module}/user_data.sh")
   key_name      = "master"
