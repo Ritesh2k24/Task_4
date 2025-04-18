@@ -36,4 +36,4 @@ This project automates the deployment of a Strapi CMS application on an AWS EC2 
 
 -Launches an EC2 instance with Docker
 
-Pulls the latest Strapi image from ECR and runs it
+-Pulls the latest Strapi image from ECR and runs it
