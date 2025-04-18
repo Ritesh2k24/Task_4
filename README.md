@@ -20,20 +20,20 @@ This project automates the deployment of a Strapi CMS application on an AWS EC2 
 1. CI Workflow (ci.yml)
 
    
-Triggers on push to master branch (I have used master)
+-Triggers on push to master branch (I have used master)
 
-Builds the Docker image for the Strapi app
+-Builds the Docker image for the Strapi app
 
-Pushes it to AWS ECR
+-Pushes it to AWS ECR
 
 
 2. CD Workflow (terraform.yml)
 
 
-Triggered manually (workflow_dispatch)
+-Triggered manually (workflow_dispatch)
 
-Runs terraform init, plan, and apply
+-Runs terraform init, plan, and apply
 
-Launches an EC2 instance with Docker
+-Launches an EC2 instance with Docker
 
 Pulls the latest Strapi image from ECR and runs it
