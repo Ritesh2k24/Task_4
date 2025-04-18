@@ -25,6 +25,14 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
+      - name: Ensure ECR repository exists
+        env:
+          AWS_REGION: us-east-1
+          ECR_REPOSITORY: strapi-app
+        run: |
+          aws ecr describe-repositories --repository-names $ECR_REPOSITORY --region $AWS_REGION || \
+          aws ecr create-repository --repository-name $ECR_REPOSITORY --region $AWS_REGION
+
       - name: Build, tag, and push image to ECR
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
