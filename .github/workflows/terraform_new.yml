@@ -32,10 +32,10 @@ jobs:
 
       - name: Terraform Plan
         working-directory: terraform
-        run: terraform plan
+        run: terraform plan -var "ami_id=${{ secrets.AMI_ID }}"
         
       - name: Terraform Apply
         env:
           TF_VAR_ami_id: ${{ secrets.AMI_ID }}
         working-directory: terraform
-        run: terraform apply -auto-approve
+        run: terraform apply -var "ami_id=${{ secrets.AMI_ID }}" --auto-approve
