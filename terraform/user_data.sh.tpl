@@ -11,8 +11,8 @@ mkdir -p /root/.aws
 
 cat <<EOT >> /root/.aws/credentials
 [default]
-aws_access_key_id=${AWS_ACCESS_KEY_ID}
-aws_secret_access_key=${AWS_SECRET_ACCESS_KEY}
+aws_access_key_id=${aws_access_key_id}
+aws_secret_access_key=${aws_secret_access_key}
 EOT
 
 cat <<EOT >> /root/.aws/config
