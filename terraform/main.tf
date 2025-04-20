@@ -39,7 +39,6 @@ resource "aws_instance" "strapi" {
   key_name               = "master"
   vpc_security_group_ids = [aws_security_group.strapi_sg.id]
 
-  
   user_data = templatefile("${path.module}/user_data.sh.tpl", {
     aws_access_key_id     = var.aws_access_key_id,
     aws_secret_access_key = var.aws_secret_access_key
