@@ -2,8 +2,17 @@ provider "aws" {
   region = "us-east-1"
 }
 
-data "aws_vpc" "default" {
-  default = true
+resource "aws_instance" "strapi" {
+  ami           =   var.ami_id
+  instance_type = "t2.medium"
+  user_data     = file("${path.module}/user_data.sh")
+  key_name      = "master"
+
+  vpc_security_group_ids = [aws_security_group.strapi_sg.id]
+
+  tags = {
+    Name = "strapi-instance"
+  }
 }
 
 resource "aws_security_group" "strapi_sg" {
@@ -33,18 +42,6 @@ resource "aws_security_group" "strapi_sg" {
   }
 }
 
-resource "aws_instance" "strapi" {
-  ami                    = var.ami_id
-  instance_type          = "t2.medium"
-  key_name               = "master"
-  vpc_security_group_ids = [aws_security_group.strapi_sg.id]
-
-  user_data = templatefile("${path.module}/user_data.sh.tpl", {
-    aws_access_key_id     = var.aws_access_key_id,
-    aws_secret_access_key = var.aws_secret_access_key
-  })
-
-  tags = {
-    Name = "strapi-instance"
-  }
+data "aws_vpc" "default" {
+  default = true
 }
