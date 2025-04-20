@@ -39,7 +39,9 @@ jobs:
         run: terraform plan -var "ami_id=${{ secrets.AMI_ID }}"
         
       - name: Terraform Apply
+        working-directory: terraform
         env:
           TF_VAR_ami_id: ${{ secrets.AMI_ID }}
-        working-directory: terraform
+          TF_VAR_aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          TF_VAR_aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: terraform apply -var "ami_id=${{ secrets.AMI_ID }}" --auto-approve
