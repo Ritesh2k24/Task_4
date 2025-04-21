@@ -11,8 +11,6 @@ WORKDIR /opt/
 
 COPY package.json package-lock.json ./
 
-COPY config/server.js ./config/server.js   #copy the server.js file
-
 RUN npm install -g node-gyp
 
 # Install dependencies
@@ -27,6 +25,7 @@ WORKDIR /opt/app
 # Copy source code
 COPY . .
 
+RUN npm run build
 
 # Rebuild native modules like better-sqlite3 inside container
 RUN npm rebuild better-sqlite3
