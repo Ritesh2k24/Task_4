@@ -25,6 +25,9 @@ WORKDIR /opt/app
 # Copy source code
 COPY . .
 
+COPY config/server.js ./config/server.js   #copy the server.js file
+
+
 # Rebuild native modules like better-sqlite3 inside container
 RUN npm rebuild better-sqlite3
 
