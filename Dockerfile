@@ -25,6 +25,8 @@ WORKDIR /opt/app
 # Copy source code
 COPY . .
 
+COPY .env .env
+
 RUN npm run build
 
 # Rebuild native modules like better-sqlite3 inside container
