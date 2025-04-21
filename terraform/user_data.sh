@@ -31,6 +31,6 @@ sudo usermod -aG docker $USER
 newgrp docker
 
 # Pull and run Strapi Docker image
-sudo docker pull 905418107991.dkr.ecr.us-east-1.amazonaws.com/strapi-app:latest
-sudo docker run -d -p 1337:1337 905418107991.dkr.ecr.us-east-1.amazonaws.com/strapi-app:latest
+docker pull 905418107991.dkr.ecr.us-east-1.amazonaws.com/strapi-app:latest
+docker run -d -p 1337:1337 905418107991.dkr.ecr.us-east-1.amazonaws.com/strapi-app:latest
 
