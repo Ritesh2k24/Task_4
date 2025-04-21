@@ -3,7 +3,7 @@ FROM node:18-alpine3.18
 # Install required packages for native modules like sharp and better-sqlite3
 RUN apk update && apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev nasm bash vips-dev git python3 make g++
 
-ARG NODE_ENV=development
+ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
 
 # Set working directory for initial install
@@ -44,5 +44,5 @@ RUN ["npm", "run", "build"]
 EXPOSE 1337
 
 # Start in development mode
-CMD ["npm", "run", "develop"]
+CMD ["npm", "run", "start"]
 
