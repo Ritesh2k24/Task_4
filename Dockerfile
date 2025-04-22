@@ -43,6 +43,6 @@ RUN ["npm", "run", "build"]
 
 EXPOSE 1337
 
-# Start in development mode
-CMD ["npm", "run", "start"]
+CMD ["sh", "-c", "source .env && npm run develop"]
+
 
